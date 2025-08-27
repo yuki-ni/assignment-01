@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random User Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #2b1b1b;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      background-color: rgb(228, 234, 234);
+      outline: none;
+
+      box-shadow: 0 0 10px #0030ef;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    
+    input:focus {
+      border-color: #00ffcc;
+      box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+    }
+    .header, .row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .cell {
+      min-width: 150px;
+      text-align: center;
+      padding: 10px;
+      border-radius: 20px;
+      background: #f2f2f2;
+
+      border: 1px solid #2b1b1b;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .error {
+      color: rgb(145, 12, 12);
+      margin-bottom: 10px;
+    }
+
+    select {
+      border: none;
+      background: transparent;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="userCount" placeholder="Enter number of random users" 
+         onkeypress="if(event.key==='Enter'){fetchUsers()}">
+
+  <div class="error" id="errorMsg"></div>
+
+  <div class="header" id="header" style="display:none;">
+    <div class="cell">
+      <select id="nameType" onchange="renderUsers()">
+        <option value="first">First Name</option>
+        <option value="last">Last Name</option>
+      </select>
+    </div>
+    <div class="cell">Gender</div>
+    <div class="cell">Email</div>
+    <div class="cell">Country</div>
+  </div>
+
+
+  <div id="userList"></div>
+
+  <script src="f.js"></script>
+</body>
+</html>
